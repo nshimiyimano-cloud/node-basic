@@ -1,22 +1,12 @@
-//const helper=require('./helper');
-//to destructure our sum from helper modure
-const {sum}=require("./helper");
+//then we create server with express
+const express=require('express');
+const { ppid } = require('process');
+const app=express();
 
 
-//console.log('process',process);
-//work with functions
+app.get('/',(req,res)=>{
+    res.send('hey server from express');
+})
 
 
- //const total=helper.sum(20,40); do like this if you not destructured your sum
- const total=sum(20,40); 
-console.log('total'+total);
-
-//to create simple server with node module
-
-const http=require('http');
-
-const server=http.createServer((req,res)=>{
-    res.end('hello my simple node   server on port 4000!')
-});
-
-server.listen(4000);
+app.listen(4000);
