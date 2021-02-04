@@ -1,1 +1,4 @@
-mmmm
+Data Science and Engineering E-Degree
+Build your career in Data Science using tools like Python, Excel, R, Tableau, MySQL, PySpark and multiple hands-on projects.
+
+Watch Intro Video

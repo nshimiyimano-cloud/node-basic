@@ -1,9 +1,14 @@
-//wotk with filesystem
+const fs=require("fs");
 
+const fileName="target.txt";
+fs.readFile(fileName,(err,data)=>{
+    if(err){
+        throw new Error('unable to read this file')
+    }
+    else{
+        console.log(data.toString());  //by default this data is buffer as many numbers we need to change into string by using toString()
+    }
+})
 
-const fs=require('fs');
-const fileName='target.txt';
-
-
-//watch function takes2 args filename and callback function &this 
-fs.watch(fileName,()=>console.log('file was changes'))  //thus watch watch any changes occur on file// never stop it is aluays waiting
+console.log('asynchroneous programming... this text displayed before above because we use async');
+ 
