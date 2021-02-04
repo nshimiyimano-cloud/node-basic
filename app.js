@@ -1,12 +1,9 @@
-//then we create server with express
-const express=require('express');
-const { ppid } = require('process');
-const app=express();
+//wotk with filesystem
 
 
-app.get('/',(req,res)=>{
-    res.send('hey server from express');
-})
+const fs=require('fs');
+const fileName='target.txt';
 
 
-app.listen(4000);
+//watch function takes2 args filename and callback function &this 
+fs.watch(fileName,()=>console.log('file was changes'))  //thus watch watch any changes occur on file// never stop it is aluays waiting
