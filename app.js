@@ -1,34 +1,28 @@
-const fs=require("fs");
+const express=require('express');
+const app=express();
 
-const fileName="target.txt";
+const morgan=require("morgan");
+//bring routes
 
 
+//to create our middleware
 
-
-//APPLY FUNCTIONAL APPROACH IN THIS operation to read file
-
-//for error handler
-
-const errorHandler=(err)=>{
-    console.log(err);
+const ourOwnMiddleware=(req,res,next)=>{
+    console.log("middleware applied");
+    next();
 }
 
-
-//for data handler
-
-const dataHandler=(data)=>{
-    console.log(data.toString());
-}
+const {getPost} =require("./routes/post")
 
 
-fs.readFile(fileName,(err,data)=>{
-    if(err) errorHandler(err)
-    else{
-        console.log(dataHandler(data)) ; //by default this data is buffer as many numbers we need to change into string by using toString()
-    }
-})
-
-console.log('asynchroneous programming... this text displayed before above because we use async');
- 
+app.use(morgan("dev"));
+//call our middleware
+app.use(ourOwnMiddleware);
+app.get("/",getPost);
 
 
+
+
+
+const port=4000
+app.listen(port,()=>console.log(`Node js API is listening on port${port}`));
