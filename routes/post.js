@@ -1,16 +1,16 @@
 
 
-const getPost=(req,res)=>{
-    res.send("hello world from node js")
-};
 
-module.exports={
-    getPost
-}
+const express=require("express");
+
+const postController=require("../controllers/post");
+
+
+const router=express.Router();
+
+router.get('/',postController.getPost);
+
 
  
 
- /* /other way youncan export this getposts
- exports.getposts=(req,res)=>{
-    res.send("hello world from node js")
- } */
+ module.exports=router;

@@ -12,13 +12,14 @@ const ourOwnMiddleware=(req,res,next)=>{
     next();
 }
 
-const {getPost} =require("./routes/post")
+const postRoutes=require("./routes/post")
 
 
 app.use(morgan("dev"));
 //call our middleware
 app.use(ourOwnMiddleware);
-app.get("/",getPost);
+//app.get("/",getPost);
+app.use('/',postRoutes);
 
 
 
